@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samreena Jamshed | Data Engineer · Analytics Engineer · BI Analyst</title>
+<meta name="description" content="Samreena Jamshed — Data Engineer with 6+ years building scalable ETL pipelines, analytics platforms, and BI solutions. Based in Karachi, open to remote-first and international roles.">
+<meta name="keywords" content="Data Engineer, Analytics Engineer, BI Analyst, Python, Apache Airflow, Power BI, SQL, ETL Pipelines, Karachi Pakistan, Remote Data Engineer">
+<meta property="og:title" content="Samreena Jamshed | Data Engineer & Analytics Engineer">
+<meta property="og:description" content="6+ years turning messy data into business decisions. ETL, BI, AI-readiness.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://samreenajamshed.dev">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<style>
+:root {
+  --bg: #0a0a0f;
+  --bg2: #111118;
+  --bg3: #1a1a24;
+  --surface: #16161f;
+  --surface2: #1e1e2a;
+  --border: rgba(255,255,255,0.07);
+  --border2: rgba(255,255,255,0.12);
+  --text: #e8e8f0;
+  --text2: #9898b0;
+  --text3: #5a5a72;
+  --accent: #c8a96e;
+  --accent2: #9b72cf;
+  --accent3: #5cb8b2;
+  --accent-glow: rgba(200,169,110,0.15);
+  --card-bg: rgba(22,22,31,0.8);
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-mono: 'DM Mono', monospace;
+  --font-body: 'DM Sans', sans-serif;
+  --radius: 12px;
+  --radius-lg: 20px;
+}
+[data-theme="light"] {
+  --bg: #f5f4f0;
+  --bg2: #eeede8;
+  --bg3: #e6e4de;
+  --surface: #faf9f6;
+  --surface2: #f0efe9;
+  --border: rgba(0,0,0,0.08);
+  --border2: rgba(0,0,0,0.14);
+  --text: #1a1a22;
+  --text2: #4a4a5a;
+  --text3: #8a8a9a;
+  --card-bg: rgba(250,249,246,0.9);
+  --accent-glow: rgba(200,169,110,0.1);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+/* ─── NOISE TEXTURE OVERLAY ─── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* ─── TYPOGRAPHY ─── */
+h1,h2,h3 { font-family: var(--font-display); font-weight: 700; }
+h4,h5,h6 { font-family: var(--font-body); font-weight: 600; }
+.mono { font-family: var(--font-mono); }
+
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  backdrop-filter: blur(20px);
+  background: rgba(10,10,15,0.85);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: all 0.3s;
+}
+[data-theme="light"] nav { background: rgba(245,244,240,0.88); }
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+.nav-links { display: flex; gap: 32px; align-items: center; list-style: none; }
+.nav-links a {
+  color: var(--text2);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--accent); }
+.theme-btn {
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  color: var(--text2);
+  padding: 6px 14px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  transition: all 0.2s;
+}
+.theme-btn:hover { border-color: var(--accent); color: var(--accent); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--text2); border-radius: 2px; transition: all 0.3s; }
+
+/* ─── SECTIONS ─── */
+section { position: relative; z-index: 1; }
+.container { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
+.section-pad { padding: 96px 0; }
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-label::after { content: ''; flex: 1; max-width: 60px; height: 1px; background: var(--accent); opacity: 0.4; }
+.section-title { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; margin-bottom: 16px; }
+.section-sub { color: var(--text2); font-size: 1.05rem; max-width: 560px; }
+
+/* ─── HERO ─── */
+#hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+  padding-top: 64px;
+}
+.hero-grid-bg {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(200,169,110,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,169,110,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.hero-glow {
+  position: absolute;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,169,110,0.08) 0%, transparent 70%);
+  top: -100px; right: -100px;
+  pointer-events: none;
+}
+.hero-glow2 {
+  position: absolute;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(155,114,207,0.06) 0%, transparent 70%);
+  bottom: 0; left: -80px;
+  pointer-events: none;
+}
+.hero-content { position: relative; z-index: 2; }
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(200,169,110,0.1);
+  border: 1px solid rgba(200,169,110,0.25);
+  color: var(--accent);
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  margin-bottom: 28px;
+}
+.hero-tag::before { content: '●'; font-size: 0.5rem; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+.hero-name {
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 1.0;
+  font-style: italic;
+  background: linear-gradient(135deg, var(--text) 0%, var(--accent) 60%, var(--text2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+}
+.hero-title {
+  font-family: var(--font-mono);
+  font-size: clamp(0.78rem, 2vw, 0.95rem);
+  color: var(--text3);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.hero-desc {
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  color: var(--text2);
+  max-width: 580px;
+  line-height: 1.8;
+  margin-bottom: 44px;
+  font-weight: 300;
+}
+.hero-desc strong { color: var(--text); font-weight: 500; }
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--accent);
+  color: #0a0a0f;
+  padding: 14px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.88rem;
+  letter-spacing: 0.5px;
+  transition: all 0.25s;
+  border: none; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(200,169,110,0.3); }
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  padding: 14px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.88rem;
+  border: 1px solid var(--border2);
+  transition: all 0.25s;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+.hero-stats {
+  display: flex; gap: 40px;
+  margin-top: 56px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+.stat-num { font-family: var(--font-display); font-size: 2.2rem; color: var(--accent); line-height: 1; }
+.stat-label { font-size: 0.78rem; color: var(--text3); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; font-family: var(--font-mono); }
+
+/* ─── ABOUT ─── */
+#about { background: var(--bg2); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.about-text p { color: var(--text2); margin-bottom: 20px; font-size: 1.02rem; line-height: 1.85; }
+.about-text p strong { color: var(--text); }
+.about-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.tag {
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  border: 1px solid var(--border2);
+  color: var(--text2);
+}
+.about-sidebar { position: sticky; top: 88px; }
+.info-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  margin-bottom: 20px;
+}
+.info-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 0.88rem; }
+.info-row:last-child { border-bottom: none; }
+.info-key { color: var(--text3); font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; }
+.info-val { color: var(--text); font-weight: 500; text-align: right; font-size: 0.9rem; }
+.edu-item { padding: 16px 0; border-bottom: 1px solid var(--border); }
+.edu-item:last-child { border-bottom: none; }
+.edu-degree { font-weight: 600; font-size: 0.92rem; margin-bottom: 2px; }
+.edu-school { color: var(--text3); font-size: 0.82rem; }
+
+/* ─── SKILLS ─── */
+#skills { background: var(--bg); }
+.skills-categories { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.skill-cat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  transition: border-color 0.3s;
+}
+.skill-cat:hover { border-color: rgba(200,169,110,0.3); }
+.skill-cat-title {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 24px;
+  display: flex; align-items: center; gap: 10px;
+}
+.skill-cat-title::before { content: '//'; color: var(--text3); }
+.skill-items { display: flex; flex-direction: column; gap: 14px; }
+.skill-item {}
+.skill-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.skill-name { font-size: 0.88rem; font-weight: 500; }
+.skill-meta { font-size: 0.7rem; color: var(--text3); font-family: var(--font-mono); }
+.skill-bar { height: 3px; background: var(--border2); border-radius: 3px; overflow: hidden; }
+.skill-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--accent), var(--accent2)); transition: width 1.2s cubic-bezier(0.4,0,0.2,1); }
+
+/* ─── EXPERIENCE ─── */
+#experience { background: var(--bg2); }
+.timeline { position: relative; padding-left: 32px; }
+.timeline::before { content: ''; position: absolute; left: 10px; top: 8px; bottom: 8px; width: 1px; background: linear-gradient(to bottom, var(--accent), var(--accent2), transparent); }
+.timeline-item { position: relative; margin-bottom: 52px; }
+.timeline-dot {
+  position: absolute;
+  left: -26px; top: 8px;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg2);
+  box-shadow: 0 0 12px rgba(200,169,110,0.4);
+}
+.exp-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.exp-card:hover { border-color: rgba(200,169,110,0.25); transform: translateX(4px); }
+.exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
+.exp-company { font-size: 0.75rem; color: var(--accent); font-family: var(--font-mono); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px; }
+.exp-role { font-size: 1.2rem; font-weight: 600; margin-bottom: 4px; }
+.exp-period { font-size: 0.75rem; color: var(--text3); font-family: var(--font-mono); background: var(--surface2); padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border); white-space: nowrap; }
+.exp-section { margin-bottom: 16px; }
+.exp-section-title { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text3); font-family: var(--font-mono); margin-bottom: 8px; }
+.exp-section p, .exp-section li { font-size: 0.92rem; color: var(--text2); line-height: 1.75; }
+.exp-section ul { padding-left: 18px; }
+.exp-section li { margin-bottom: 4px; }
+.exp-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.exp-tag {
+  font-size: 0.72rem; font-family: var(--font-mono);
+  padding: 4px 10px; border-radius: 5px;
+  background: var(--surface2); border: 1px solid var(--border); color: var(--text3);
+}
+.impact-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(92,184,178,0.1); border: 1px solid rgba(92,184,178,0.25);
+  color: var(--accent3); padding: 5px 12px; border-radius: 20px;
+  font-size: 0.75rem; font-family: var(--font-mono); margin: 3px;
+}
+
+/* ─── PROJECTS ─── */
+#projects { background: var(--bg); }
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; }
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  display: flex; flex-direction: column;
+  transition: all 0.3s;
+  cursor: default;
+}
+.project-card:hover { border-color: rgba(200,169,110,0.3); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+.project-num { font-family: var(--font-mono); font-size: 0.65rem; color: var(--text3); letter-spacing: 2px; margin-bottom: 16px; }
+.project-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; line-height: 1.35; }
+.project-badge { display: inline-block; font-size: 0.7rem; font-family: var(--font-mono); padding: 3px 10px; border-radius: 20px; margin-bottom: 16px; }
+.badge-etl { background: rgba(200,169,110,0.1); border: 1px solid rgba(200,169,110,0.25); color: var(--accent); }
+.badge-bi { background: rgba(92,184,178,0.1); border: 1px solid rgba(92,184,178,0.25); color: var(--accent3); }
+.badge-ai { background: rgba(155,114,207,0.1); border: 1px solid rgba(155,114,207,0.25); color: var(--accent2); }
+.project-desc { font-size: 0.88rem; color: var(--text2); line-height: 1.75; margin-bottom: 20px; flex: 1; }
+.project-tools { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+.project-tool { font-size: 0.7rem; font-family: var(--font-mono); color: var(--text3); background: var(--surface2); padding: 3px 9px; border-radius: 4px; border: 1px solid var(--border); }
+.project-impact { font-size: 0.82rem; color: var(--accent3); font-family: var(--font-mono); border-top: 1px solid var(--border); padding-top: 16px; }
+.project-links { display: flex; gap: 12px; }
+.project-link { font-size: 0.75rem; color: var(--text3); text-decoration: none; font-family: var(--font-mono); transition: color 0.2s; }
+.project-link:hover { color: var(--accent); }
+
+/* ─── ARCHITECTURE ─── */
+#architecture { background: var(--bg2); }
+.arch-tabs { display: flex; gap: 8px; margin-bottom: 32px; flex-wrap: wrap; }
+.arch-tab {
+  padding: 8px 20px; border-radius: 6px; border: 1px solid var(--border2);
+  background: transparent; color: var(--text2); font-size: 0.8rem; font-family: var(--font-mono);
+  cursor: pointer; transition: all 0.2s; letter-spacing: 0.5px;
+}
+.arch-tab.active, .arch-tab:hover { background: var(--accent); color: #0a0a0f; border-color: var(--accent); }
+.arch-panel { display: none; }
+.arch-panel.active { display: block; }
+.mermaid-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  overflow-x: auto;
+}
+.mermaid { text-align: center; }
+
+/* ─── ACHIEVEMENTS ─── */
+#achievements { background: var(--bg); }
+.achievements-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+.achievement-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  text-align: center;
+  transition: all 0.3s;
+}
+.achievement-card:hover { border-color: rgba(200,169,110,0.3); transform: translateY(-3px); }
+.achievement-num { font-family: var(--font-display); font-size: 2.8rem; color: var(--accent); line-height: 1; margin-bottom: 8px; }
+.achievement-label { font-size: 0.88rem; color: var(--text2); line-height: 1.5; }
+.achievement-icon { font-size: 1.5rem; margin-bottom: 12px; }
+
+/* ─── CERTIFICATIONS ─── */
+#certifications { background: var(--bg2); }
+.cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; }
+.cert-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  display: flex; align-items: center; gap: 16px;
+  transition: border-color 0.3s;
+}
+.cert-card:hover { border-color: rgba(200,169,110,0.3); }
+.cert-icon { width: 42px; height: 42px; border-radius: 10px; background: rgba(200,169,110,0.1); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+.cert-name { font-size: 0.9rem; font-weight: 500; margin-bottom: 3px; }
+.cert-issuer { font-size: 0.75rem; color: var(--text3); font-family: var(--font-mono); }
+
+/* ─── TECH STACK ─── */
+#techstack { background: var(--bg); }
+.tech-categories { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.tech-cat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+.tech-cat-label { font-size: 0.68rem; font-family: var(--font-mono); letter-spacing: 2.5px; text-transform: uppercase; color: var(--text3); margin-bottom: 16px; }
+.tech-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.tech-pill {
+  font-size: 0.78rem; font-family: var(--font-mono);
+  padding: 5px 12px; border-radius: 6px;
+  border: 1px solid var(--border2); color: var(--text2);
+  transition: all 0.2s;
+}
+.tech-pill:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-glow); }
+
+/* ─── TESTIMONIALS ─── */
+#testimonials { background: var(--bg2); }
+.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; }
+.testimonial-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  position: relative;
+}
+.testimonial-card::before {
+  content: '"';
+  position: absolute; top: 20px; right: 24px;
+  font-family: var(--font-display); font-size: 5rem;
+  color: var(--accent); opacity: 0.15; line-height: 1;
+}
+.testimonial-text { font-size: 0.95rem; color: var(--text2); line-height: 1.85; margin-bottom: 24px; font-style: italic; }
+.testimonial-author { display: flex; align-items: center; gap: 14px; }
+.author-avatar { width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--accent2)); display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.88rem; color: #0a0a0f; flex-shrink: 0; }
+.author-name { font-weight: 600; font-size: 0.9rem; }
+.author-role { font-size: 0.75rem; color: var(--text3); font-family: var(--font-mono); }
+
+/* ─── CONTACT ─── */
+#contact { background: var(--bg); }
+.contact-inner {
+  max-width: 680px; margin: 0 auto; text-align: center;
+}
+.contact-inner .section-label { justify-content: center; }
+.contact-inner .section-label::after { display: none; }
+.contact-inner .section-title { margin-bottom: 20px; }
+.contact-inner p { color: var(--text2); margin-bottom: 44px; font-size: 1.05rem; }
+.contact-links { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 48px; }
+.contact-link {
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px 24px;
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.88rem;
+  transition: all 0.25s;
+}
+.contact-link:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+.contact-link svg { width: 18px; height: 18px; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  padding: 32px 0;
+  text-align: center;
+}
+footer p { font-size: 0.8rem; color: var(--text3); font-family: var(--font-mono); }
+footer span { color: var(--accent); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--bg2); border-bottom: 1px solid var(--border); padding: 20px; gap: 18px; }
+  .nav-links.open { display: flex; }
+  .hamburger { display: flex; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .about-sidebar { position: static; }
+  .skills-categories { grid-template-columns: 1fr; }
+  .tech-categories { grid-template-columns: repeat(2, 1fr); }
+  .hero-stats { gap: 24px; flex-wrap: wrap; }
+}
+@media (max-width: 600px) {
+  .section-pad { padding: 64px 0; }
+  .tech-categories { grid-template-columns: 1fr; }
+  .hero-ctas { flex-direction: column; }
+  .hero-ctas .btn-primary, .hero-ctas .btn-outline { text-align: center; justify-content: center; }
+}
+
+/* ─── ANIMATIONS ─── */
+.fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+.stagger > * { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.stagger.visible > *:nth-child(1) { opacity:1; transform:translateY(0); transition-delay: 0s; }
+.stagger.visible > *:nth-child(2) { opacity:1; transform:translateY(0); transition-delay: 0.08s; }
+.stagger.visible > *:nth-child(3) { opacity:1; transform:translateY(0); transition-delay: 0.16s; }
+.stagger.visible > *:nth-child(4) { opacity:1; transform:translateY(0); transition-delay: 0.24s; }
+.stagger.visible > *:nth-child(5) { opacity:1; transform:translateY(0); transition-delay: 0.32s; }
+.stagger.visible > *:nth-child(6) { opacity:1; transform:translateY(0); transition-delay: 0.40s; }
+.stagger.visible > *:nth-child(n+7) { opacity:1; transform:translateY(0); transition-delay: 0.48s; }
+
+/* divider */
+.divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border2), transparent); margin: 0; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">Samreena Jamshed</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><button class="theme-btn" id="themeToggle">☀ Light</button></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- HERO -->
+<!-- ══════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="container hero-content">
+    <div class="hero-tag">Available for Remote &amp; International Roles</div>
+    <h1 class="hero-name">Samreena<br>Jamshed</h1>
+    <p class="hero-title">Data Engineer · Analytics Engineer · BI Analyst</p>
+    <p class="hero-desc">
+      I build <strong>reliable data pipelines</strong>, analytics platforms, and BI systems that make <strong>business decisions faster and smarter</strong>. Six years of turning messy, siloed data into something actually useful — across pharma, logistics, FMCG, and AI.
+    </p>
+    <div class="hero-ctas">
+      <a href="mailto:engr.sam789@gmail.com" class="btn-primary">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+        Get in Touch
+      </a>
+      <a href="https://drive.google.com/file/d/1qXzmB_t1Sp4_b0nrpEuBpUb-D1baXaD3/view?usp=sharing" class="btn-outline">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Resume
+      </a>
+      <a href="https://www.linkedin.com/in/samreena-jamshed-582745136/" target="_blank" class="btn-outline">
+        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">6+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div>
+        <div class="stat-num">5</div>
+        <div class="stat-label">Companies</div>
+      </div>
+      <div>
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Projects Shipped</div>
+      </div>
+      <div>
+        <div class="stat-num">20%</div>
+        <div class="stat-label">Avg. Efficiency Gain</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- ABOUT -->
+<!-- ══════════════════════════════════════════ -->
+<section id="about" class="section-pad">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text fade-up">
+        <div class="section-label">About Me</div>
+        <h2 class="section-title">Engineering background.<br><em>Data obsession.</em></h2>
+
+        <p>I came into data engineering the long way — through an Electrical Engineering degree at NED University, where I spent a lot of time thinking about systems, signals, and how things connect. What I didn't expect was that <strong>the most interesting "signals" I'd ever work with would be business data</strong>: messy, inconsistent, full of hidden patterns waiting to be useful.</p>
+
+        <p>After my BS, I started working as a Data Analyst and quickly realized that the gap between "having data" and "making decisions with data" is enormous. Companies were sitting on months of records they couldn't query, dashboards nobody trusted, and reports that took two days to produce manually. That frustration pushed me toward engineering — not just analyzing data, but <strong>building the infrastructure that makes analysis possible</strong>.</p>
+
+        <p>Over the last 6 years, I've worked across supply chain, pharmaceuticals, logistics, and AI-driven telecoms. I've built ETL pipelines in Airflow, designed KPI dashboards that actually got used, automated reporting workflows that saved teams hours every week, and led analytics functions across multiple business units. My MS in Data Science from NED gave me the statistical backbone — SARIMA, forecasting, time series — but the real learning happened in production, under deadline, when the pipeline breaks at 2 AM.</p>
+
+        <p>Right now I'm genuinely excited about <strong>Agentic AI</strong>. Not as a buzzword, but as a real shift in how data systems will work — where pipelines don't just move data, they reason about it. I've been preparing data frameworks for AI readiness and thinking carefully about what it means to build data infrastructure that an LLM can actually work with. That's the next chapter I want to be part of.</p>
+
+        <p>If you're building a data platform that needs to be reliable, documented, and actually understood by the business — that's the kind of problem I show up for.</p>
+
+        <div class="about-tags">
+          <span class="tag">ETL / ELT</span>
+          <span class="tag">Data Pipelines</span>
+          <span class="tag">BI & Dashboards</span>
+          <span class="tag">Agentic AI</span>
+          <span class="tag">Time Series</span>
+          <span class="tag">Data Quality</span>
+          <span class="tag">Remote-First</span>
+        </div>
+      </div>
+
+      <div class="about-sidebar fade-up">
+        <div class="info-card">
+          <div class="info-row">
+            <span class="info-key">Location</span>
+            <span class="info-val">Karachi, Pakistan</span>
+          </div>
+          <div class="info-row">
+            <span class="info-key">Email</span>
+            <span class="info-val"><a href="mailto:engr.sam789@gmail.com" style="color:var(--accent);text-decoration:none;">engr.sam789@gmail.com</a></span>
+          </div>
+          <div class="info-row">
+            <span class="info-key">LinkedIn</span>
+            <span class="info-val"><a href="https://www.linkedin.com/in/samreena-jamshed-582745136/" target="_blank" style="color:var(--accent);text-decoration:none;">samreena-jamshed</a></span>
+          </div>
+          <div class="info-row">
+            <span class="info-key">Experience</span>
+            <span class="info-val">6+ Years</span>
+          </div>
+          <div class="info-row">
+            <span class="info-key">Availability</span>
+            <span class="info-val" style="color:var(--accent3);">Open to Opportunities</span>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="section-label" style="margin-bottom:16px;">Education</div>
+          <div class="edu-item">
+            <div class="edu-degree">MS Data Science</div>
+            <div class="edu-school">NED University of Engineering &amp; Technology</div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-degree">BS Electrical Engineering</div>
+            <div class="edu-school">NED University of Engineering &amp; Technology</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- SKILLS -->
+<!-- ══════════════════════════════════════════ -->
+<section id="skills" class="section-pad">
+  <div class="container">
+    <div class="section-label">Technical Skills</div>
+    <h2 class="section-title">What I actually work with</h2>
+    <p class="section-sub" style="margin-bottom:48px;">Not a list of buzzwords — tools I've shipped real work in, with context on how.</p>
+
+    <div class="skills-categories stagger">
+      <!-- Data Engineering -->
+      <div class="skill-cat">
+        <div class="skill-cat-title">Data Engineering</div>
+        <div class="skill-items">
+          <div class="skill-item">
+            <div class="skill-top"><span class="skill-name">Python</span><span class="skill-meta">6 yrs · ETL, automation, ML pipelines</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-top"><span class="skill-name">SQL (PostgreSQL / MySQL / SQL Server)</span><span class="skill-meta">6 yrs · complex queries, optimization</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:93%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-top"><span class="skill-name">Apache Airflow</span><span class="skill-meta">3 yrs · DAG design, scheduling, monitoring</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-top"><span class="skill-name">Docker</span><span class="skill-meta">3 yrs · containerized pipelines</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-top"><span class="skill-name">ETL / ELT Design</span><span class="skill-meta">5 yrs · end-to-end pipeline design</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-top"><span class="skill-name">Data Validation &amp; Quality</span><span class="skill-meta">5 yrs · reconciliation, testing frameworks</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-top"><span class="skill-name">Linux / Bash</span><span class="skill-meta">4 yrs · scripting, cron, automation</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Analytics Engineering -->
+      <div class="skill-cat">
+        <div class="skill-cat-title">Analytics Engineering &amp; BI</div>
+        <div class="skill-items">
+          <div class="skill-item">
+            <div class="skill-top"><span class="skill-name">Power BI</span><span class="skill-meta">5 yrs · enterprise dashboards, DAX</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-top"><span class="skill-name">Tableau</span><span class="skill-meta">3 yrs · self-serve analytics</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-top"><span class="skill-name">SAP Analytics Cloud</span><span class="skill-meta">2 yrs · enterprise reporting</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-top"><span class="skill-name">KPI Design &amp; Reporting</span><span class="skill-meta">6 yrs · supply chain, pharma, logistics</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-top"><span class="skill-name">Business Analytics</span><span class="skill-meta">6 yrs · cross-functional stakeholder work</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI & Advanced Analytics -->
+      <div class="skill-cat">
+        <div class="skill-cat-title">AI &amp; Advanced Analytics</div>
+        <div class="skill-items">
+          <div class="skill-item">
+            <div class="skill-top"><span class="skill-name">Agentic AI / Data Preparation</span><span class="skill-meta">Active learning · LLM-ready pipelines</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-top"><span class="skill-name">Time Series Forecasting (SARIMA / ARIMA)</span><span class="skill-meta">3 yrs · petrol price, demand forecasting</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-top"><span class="skill-name">Predictive Analytics</span><span class="skill-meta">3 yrs · Pandas, Matplotlib, Scikit</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Other -->
+      <div class="skill-cat">
+        <div class="skill-cat-title">Other / Dev Tools</div>
+        <div class="skill-items">
+          <div class="skill-item">
+            <div class="skill-top"><span class="skill-name">Git &amp; Version Control</span><span class="skill-meta">5 yrs · collaborative dev</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-top"><span class="skill-name">Web Scraping</span><span class="skill-meta">3 yrs · BeautifulSoup, Requests</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-top"><span class="skill-name">Workflow &amp; Report Automation</span><span class="skill-meta">5 yrs · Python, Power BI, shell scripts</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-top"><span class="skill-name">Data Reconciliation</span><span class="skill-meta">4 yrs · cross-system validation</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- EXPERIENCE -->
+<!-- ══════════════════════════════════════════ -->
+<section id="experience" class="section-pad">
+  <div class="container">
+    <div class="section-label">Professional Experience</div>
+    <h2 class="section-title">Where I've built things</h2>
+    <p class="section-sub" style="margin-bottom:56px;">Five companies. Very different industries. Same obsession with making data work.</p>
+
+    <div class="timeline">
+
+      <!-- Afiniti -->
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-company">Afiniti</div>
+              <div class="exp-role">Data &amp; SDET Engineer</div>
+            </div>
+            <div class="exp-period">Current Role</div>
+          </div>
+          <div class="exp-section">
+            <div class="exp-section-title">Company Context</div>
+            <p>Afiniti is a behavioral AI company that uses machine learning to match customers with the right call center agents in real time. The data function here isn't just analytics — it's production-critical. The pipelines feed live AI models.</p>
+          </div>
+          <div class="exp-section">
+            <div class="exp-section-title">What I Work On</div>
+            <ul>
+              <li>Design and maintain production data pipelines in PostgreSQL and Python that serve downstream AI systems</li>
+              <li>Build and run automated data validation frameworks — catching schema drift, null anomalies, and reconciliation failures before they reach models</li>
+              <li>SDET responsibilities: writing test frameworks and quality gates for data ingestion and transformation workflows</li>
+              <li>Preparing structured datasets and clean feature tables to improve AI model deployment readiness</li>
+              <li>Linux-based pipeline monitoring, cron scheduling, and Bash automation across production environments</li>
+            </ul>
+          </div>
+          <div class="exp-section">
+            <div class="exp-section-title">Business Impact</div>
+            <div>
+              <span class="impact-badge">↓ Data defects caught pre-production</span>
+              <span class="impact-badge">↑ AI deployment readiness</span>
+              <span class="impact-badge">Automated validation coverage</span>
+            </div>
+          </div>
+          <div class="exp-tags">
+            <span class="exp-tag">PostgreSQL</span><span class="exp-tag">Python</span><span class="exp-tag">Linux</span><span class="exp-tag">Bash</span><span class="exp-tag">Data Validation</span><span class="exp-tag">SDET</span><span class="exp-tag">Agentic AI</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gerry's Logistics -->
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-company">Gerry's Logistics</div>
+              <div class="exp-role">BI &amp; Data Analyst Manager</div>
+            </div>
+            <div class="exp-period">Previous Role</div>
+          </div>
+          <div class="exp-section">
+            <div class="exp-section-title">Company Context</div>
+            <p>Gerry's is one of Pakistan's largest logistics and courier groups, handling millions of shipments. The analytics function needed to scale with the business — manually produced reports weren't cutting it anymore.</p>
+          </div>
+          <div class="exp-section">
+            <div class="exp-section-title">What I Owned</div>
+            <ul>
+              <li>Led the BI function end-to-end: from data model design to executive-facing dashboards</li>
+              <li>Built a temperature-controlled logistics monitoring platform in Power BI, integrating data from multiple operational systems</li>
+              <li>Designed and automated the enterprise reporting pipeline, replacing 2-day manual reporting cycles with near-real-time dashboards</li>
+              <li>Established KPIs for fleet utilization, on-time delivery, and route efficiency — metrics that had never been formally tracked</li>
+              <li>Mentored junior analysts and introduced structured data workflows across the team</li>
+            </ul>
+          </div>
+          <div class="exp-section">
+            <div class="exp-section-title">Business Impact</div>
+            <div>
+              <span class="impact-badge">20% reporting efficiency improvement</span>
+              <span class="impact-badge">Eliminated 2-day manual cycles</span>
+              <span class="impact-badge">Real-time logistics visibility</span>
+            </div>
+          </div>
+          <div class="exp-tags">
+            <span class="exp-tag">Power BI</span><span class="exp-tag">SQL</span><span class="exp-tag">Python</span><span class="exp-tag">Data Integration</span><span class="exp-tag">ETL</span><span class="exp-tag">KPI Design</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hilton Pharma -->
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-company">Hilton Pharma</div>
+              <div class="exp-role">BI &amp; Data Analyst — Assistant Manager</div>
+            </div>
+            <div class="exp-period">Previous Role</div>
+          </div>
+          <div class="exp-section">
+            <div class="exp-section-title">Company Context</div>
+            <p>Hilton Pharma is a mid-size pharmaceutical company with a large sales force spread across regions. Sales data was scattered across systems and regions — no single source of truth.</p>
+          </div>
+          <div class="exp-section">
+            <div class="exp-section-title">What I Built</div>
+            <ul>
+              <li>Designed the Pharmaceutical Sales Analytics Platform: a centralized Power BI solution pulling from SQL ETL processes</li>
+              <li>Built regional sales performance dashboards used weekly by the sales leadership team</li>
+              <li>Developed data validation routines to catch discrepancies between CRM and ERP data before reporting</li>
+              <li>Standardized the ETL process for monthly sales ingestion, cutting data preparation time significantly</li>
+            </ul>
+          </div>
+          <div class="exp-section">
+            <div class="exp-section-title">Business Impact</div>
+            <div>
+              <span class="impact-badge">Single source of truth for sales</span>
+              <span class="impact-badge">Faster regional decision-making</span>
+              <span class="impact-badge">Reduced data prep time</span>
+            </div>
+          </div>
+          <div class="exp-tags">
+            <span class="exp-tag">Power BI</span><span class="exp-tag">SQL</span><span class="exp-tag">ETL</span><span class="exp-tag">Data Validation</span><span class="exp-tag">Sales Analytics</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- IFFCO -->
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-company">IFFCO Pakistan</div>
+              <div class="exp-role">Supply Chain Analyst</div>
+            </div>
+            <div class="exp-period">Previous Role</div>
+          </div>
+          <div class="exp-section">
+            <div class="exp-section-title">Company Context</div>
+            <p>IFFCO is a large FMCG conglomerate. Supply chain operations at this scale mean thousands of SKUs, multiple warehouses, and constant pressure on inventory and lead times.</p>
+          </div>
+          <div class="exp-section">
+            <div class="exp-section-title">What I Contributed</div>
+            <ul>
+              <li>Built Supply Chain KPI dashboards tracking WIP, lead times, inventory turns, and supplier performance</li>
+              <li>Drove a 30% reduction in WIP through better visibility and alerting on slow-moving inventory</li>
+              <li>Reduced average project lead time by 15% by identifying bottlenecks in production scheduling data</li>
+              <li>Introduced 5S methodology principles to data management practices — a habit that stuck with me</li>
+            </ul>
+          </div>
+          <div class="exp-section">
+            <div class="exp-section-title">Business Impact</div>
+            <div>
+              <span class="impact-badge">30% WIP reduction</span>
+              <span class="impact-badge">15% lead time reduction</span>
+              <span class="impact-badge">Supplier performance tracking</span>
+            </div>
+          </div>
+          <div class="exp-tags">
+            <span class="exp-tag">Power BI</span><span class="exp-tag">SQL</span><span class="exp-tag">Supply Chain Analytics</span><span class="exp-tag">KPI Dashboards</span><span class="exp-tag">5S</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Libra Engineering -->
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot"></div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <div class="exp-company">Libra Engineering</div>
+              <div class="exp-role">Data Analyst</div>
+            </div>
+            <div class="exp-period">Early Career</div>
+          </div>
+          <div class="exp-section">
+            <div class="exp-section-title">Where It Started</div>
+            <p>My first proper analytics role. I was writing SQL queries before I knew what an ETL was, building Excel models before I knew Power BI existed. But this is where I learned to ask the right question: <em>what decision does this data need to support?</em></p>
+          </div>
+          <div class="exp-section">
+            <div class="exp-section-title">What I Did</div>
+            <ul>
+              <li>Built the Airline Route Intelligence Database — a web-scraped, SQL-backed dataset of route performance and market data</li>
+              <li>Produced operational analytics reports for engineering project tracking</li>
+              <li>First exposure to data quality issues at scale — and why they matter</li>
+            </ul>
+          </div>
+          <div class="exp-tags">
+            <span class="exp-tag">Python</span><span class="exp-tag">SQL</span><span class="exp-tag">Web Scraping</span><span class="exp-tag">Excel</span><span class="exp-tag">Data Analysis</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- PROJECTS -->
+<!-- ══════════════════════════════════════════ -->
+<section id="projects" class="section-pad">
+  <div class="container">
+    <div class="section-label">Featured Projects</div>
+    <h2 class="section-title">Things I've actually built</h2>
+    <p class="section-sub" style="margin-bottom:48px;">Real problems. Real constraints. Real results.</p>
+
+    <div class="projects-grid stagger">
+
+      <div class="project-card">
+        <div class="project-num">01 / ETL Engineering</div>
+        <div class="project-title">OpenWeather ETL Pipeline</div>
+        <span class="project-badge badge-etl">Data Engineering</span>
+        <p class="project-desc">Built a fully containerized ETL pipeline that pulls weather data from the OpenWeather API, transforms it, and loads it into MySQL on a scheduled basis. The real challenge was handling API rate limits and schema inconsistencies across different data endpoints. Airflow DAGs manage the orchestration; Docker ensures it runs identically everywhere.</p>
+        <div class="project-tools">
+          <span class="project-tool">Python</span><span class="project-tool">Apache Airflow</span><span class="project-tool">Docker</span><span class="project-tool">MySQL</span>
+        </div>
+        <div class="project-impact">↑ Fully automated · Zero manual intervention · Docker-portable</div>
+        <div class="project-links" style="margin-top:12px;">
+          <a href="#" class="project-link">[ GitHub ]</a>
+          <a href="#" class="project-link">[ Case Study ]</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-num">02 / Forecasting</div>
+        <div class="project-title">Petrol Price Forecasting Model</div>
+        <span class="project-badge badge-ai">AI / ML</span>
+        <p class="project-desc">Developed a time series forecasting model for petrol price prediction using SARIMA and ARIMA. Evaluated multiple seasonal decomposition strategies, handled stationarity issues via differencing, and benchmarked model performance on RMSE. The output helped supply chain planners anticipate cost fluctuations 4–6 weeks ahead.</p>
+        <div class="project-tools">
+          <span class="project-tool">Python</span><span class="project-tool">SARIMA</span><span class="project-tool">ARIMA</span><span class="project-tool">Pandas</span><span class="project-tool">Matplotlib</span>
+        </div>
+        <div class="project-impact">↓ Cost variance · 4–6 week forecast horizon</div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-num">03 / BI Platform</div>
+        <div class="project-title">Pharmaceutical Sales Analytics Platform</div>
+        <span class="project-badge badge-bi">Analytics Engineering</span>
+        <p class="project-desc">Designed and delivered a centralized analytics platform for a pharma company's regional sales teams. Built the ETL layer in SQL, created a star schema data model, and delivered a Power BI front-end used weekly by sales leadership. Replaced an offline Excel process that produced numbers nobody fully trusted.</p>
+        <div class="project-tools">
+          <span class="project-tool">Power BI</span><span class="project-tool">SQL</span><span class="project-tool">ETL</span>
+        </div>
+        <div class="project-impact">Single source of truth · Weekly leadership reporting</div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-num">04 / KPI Dashboard</div>
+        <div class="project-title">Supply Chain KPI Dashboard</div>
+        <span class="project-badge badge-bi">Analytics Engineering</span>
+        <p class="project-desc">Built a real-time supply chain dashboard for a large FMCG company tracking WIP, inventory turns, lead times, and supplier on-time delivery. The business had the data — it just lived in five different systems. Bringing it together into one view changed how operations meetings ran.</p>
+        <div class="project-tools">
+          <span class="project-tool">Power BI</span><span class="project-tool">SQL</span>
+        </div>
+        <div class="project-impact">30% WIP reduction · 15% lead time improvement</div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-num">05 / Data Engineering</div>
+        <div class="project-title">Airline Route Intelligence Database</div>
+        <span class="project-badge badge-etl">Data Engineering</span>
+        <p class="project-desc">Scraped, cleaned, and structured airline route data from public sources into a relational database. Built Python scrapers to handle pagination and data inconsistencies, then loaded structured data into SQL for analysis. Used to support route profitability and market opportunity analysis.</p>
+        <div class="project-tools">
+          <span class="project-tool">Python</span><span class="project-tool">Web Scraping</span><span class="project-tool">SQL</span>
+        </div>
+        <div class="project-impact">Structured market dataset · Route profitability analysis</div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-num">06 / Logistics BI</div>
+        <div class="project-title">Temperature-Controlled Logistics Monitoring</div>
+        <span class="project-badge badge-bi">Analytics Engineering</span>
+        <p class="project-desc">Designed a monitoring dashboard for cold-chain logistics operations — tracking shipment temperatures, SLA compliance, and exception events across the delivery network. Integrated data from operational systems and IoT feeds into a unified Power BI view for operations and compliance teams.</p>
+        <div class="project-tools">
+          <span class="project-tool">Power BI</span><span class="project-tool">Data Integration</span>
+        </div>
+        <div class="project-impact">SLA compliance visibility · Exception alerting</div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-num">07 / AI Readiness</div>
+        <div class="project-title">Agentic AI Data Preparation Framework</div>
+        <span class="project-badge badge-ai">AI / ML</span>
+        <p class="project-desc">Built a framework to prepare production data for LLM consumption — cleaning, structuring, and contextualizing raw PostgreSQL tables into formats that AI agents can reason about. Includes metadata enrichment, schema documentation generation, and data profiling outputs that make datasets "AI-ready" rather than just queryable.</p>
+        <div class="project-tools">
+          <span class="project-tool">Python</span><span class="project-tool">SQL</span><span class="project-tool">PostgreSQL</span>
+        </div>
+        <div class="project-impact">↑ AI deployment readiness · Structured metadata layer</div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-num">08 / Data Quality</div>
+        <div class="project-title">Automated Data Reconciliation Framework</div>
+        <span class="project-badge badge-etl">Data Engineering</span>
+        <p class="project-desc">Built a Python + SQL framework to automatically reconcile data across source systems — detecting row count mismatches, value drift, duplicate keys, and referential integrity failures. Runs on a schedule and produces structured exception reports. Designed to catch what pipelines miss before anything hits production.</p>
+        <div class="project-tools">
+          <span class="project-tool">Python</span><span class="project-tool">SQL</span>
+        </div>
+        <div class="project-impact">Pre-production defect detection · Automated exception reports</div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-num">09 / Reporting</div>
+        <div class="project-title">Enterprise Reporting Automation Platform</div>
+        <span class="project-badge badge-bi">Analytics Engineering</span>
+        <p class="project-desc">Replaced a manual, multi-day reporting process with an automated Power BI + Python + SQL pipeline. Reports that previously required two analysts two days to produce now refresh automatically. Built parameterized report templates, automated distribution via email, and a centralized data model serving multiple business units.</p>
+        <div class="project-tools">
+          <span class="project-tool">Power BI</span><span class="project-tool">SQL</span><span class="project-tool">Python</span>
+        </div>
+        <div class="project-impact">20% efficiency gain · 2-day cycle eliminated</div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-num">10 / Data Validation</div>
+        <div class="project-title">Production Data Validation System</div>
+        <span class="project-badge badge-etl">Data Engineering</span>
+        <p class="project-desc">Developed a comprehensive data validation system for production PostgreSQL environments. Includes schema drift detection, null/type checks, constraint validation, and row-level anomaly flagging. Runs on Linux with Bash/cron scheduling. Outputs structured logs and sends alerts when thresholds breach — before downstream systems notice anything's wrong.</p>
+        <div class="project-tools">
+          <span class="project-tool">PostgreSQL</span><span class="project-tool">Python</span><span class="project-tool">Linux</span>
+        </div>
+        <div class="project-impact">Schema drift detection · Automated alerting · Production-grade</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- ARCHITECTURE -->
+<!-- ══════════════════════════════════════════ -->
+<section id="architecture" class="section-pad">
+  <div class="container">
+    <div class="section-label">Architecture Diagrams</div>
+    <h2 class="section-title">How I design systems</h2>
+    <p class="section-sub" style="margin-bottom:40px;">Pipeline patterns I use and have built in production.</p>
+
+    <div class="arch-tabs">
+      <button class="arch-tab active" onclick="showArch('etl',this)">ETL Pipeline</button>
+      <button class="arch-tab" onclick="showArch('analytics',this)">Analytics Pipeline</button>
+      <button class="arch-tab" onclick="showArch('ai',this)">AI Data Pipeline</button>
+      <button class="arch-tab" onclick="showArch('reporting',this)">Reporting Pipeline</button>
+    </div>
+
+    <div id="arch-etl" class="arch-panel active mermaid-wrap">
+      <div class="mermaid">
+graph LR
+    A[fa:fa-database Source Systems<br/>APIs / DBs / Files] --> B[Extraction Layer<br/>Python Scripts]
+    B --> C[Staging Area<br/>Raw Data Store]
+    C --> D[Transformation<br/>Data Cleaning · Validation · Business Logic]
+    D --> E[Data Warehouse<br/>PostgreSQL / MySQL]
+    E --> F[Analytics Layer<br/>Power BI / Tableau]
+    G[Apache Airflow<br/>Orchestration] -.-> B
+    G -.-> D
+    H[Docker<br/>Containerization] -.-> B
+    H -.-> D
+    style A fill:#1a1a24,stroke:#c8a96e,color:#e8e8f0
+    style E fill:#1a1a24,stroke:#5cb8b2,color:#e8e8f0
+    style G fill:#1a1a24,stroke:#9b72cf,color:#e8e8f0
+      </div>
+    </div>
+
+    <div id="arch-analytics" class="arch-panel mermaid-wrap">
+      <div class="mermaid">
+graph TD
+    A[Raw Data Sources] --> B[Ingestion<br/>Python ETL]
+    B --> C[Staging Tables<br/>SQL Server / PostgreSQL]
+    C --> D[Data Modeling<br/>Star Schema / Dimensional]
+    D --> E[Semantic Layer<br/>Metrics · KPIs · Business Logic]
+    E --> F[BI Layer<br/>Power BI Dashboards]
+    E --> G[Self-Serve Analytics<br/>Tableau / Ad-hoc SQL]
+    F --> H[Executive Reports]
+    G --> H
+    style D fill:#1a1a24,stroke:#c8a96e,color:#e8e8f0
+    style E fill:#1a1a24,stroke:#5cb8b2,color:#e8e8f0
+      </div>
+    </div>
+
+    <div id="arch-ai" class="arch-panel mermaid-wrap">
+      <div class="mermaid">
+graph LR
+    A[Raw Production Data<br/>PostgreSQL] --> B[Data Profiling<br/>Schema · Stats · Quality]
+    B --> C[Data Cleaning<br/>Null handling · Type fixes]
+    C --> D[Feature Engineering<br/>Structured Tables]
+    D --> E[Metadata Enrichment<br/>Context · Documentation]
+    E --> F[AI-Ready Dataset<br/>LLM / Model Input]
+    F --> G[Agentic AI System<br/>LLM with Tool Use]
+    H[Validation Layer<br/>Python Quality Gates] -.-> C
+    H -.-> D
+    style F fill:#1a1a24,stroke:#9b72cf,color:#e8e8f0
+    style G fill:#1a1a24,stroke:#c8a96e,color:#e8e8f0
+      </div>
+    </div>
+
+    <div id="arch-reporting" class="arch-panel mermaid-wrap">
+      <div class="mermaid">
+graph TD
+    A[Source Data<br/>ERP · CRM · Ops Systems] --> B[ETL Pipeline<br/>Python · SQL]
+    B --> C[Central Data Model<br/>Normalized · Validated]
+    C --> D[Power BI Dataset<br/>Scheduled Refresh]
+    D --> E[Report Templates<br/>Parameterized Dashboards]
+    E --> F[Auto Distribution<br/>Email · Teams · Portal]
+    F --> G[Stakeholders<br/>Executives · Managers · Teams]
+    H[Airflow Scheduler<br/>Cron / Event-based] -.-> B
+    H -.-> D
+    style C fill:#1a1a24,stroke:#c8a96e,color:#e8e8f0
+    style F fill:#1a1a24,stroke:#5cb8b2,color:#e8e8f0
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- ACHIEVEMENTS -->
+<!-- ══════════════════════════════════════════ -->
+<section id="achievements" class="section-pad">
+  <div class="container">
+    <div class="section-label">Impact &amp; Achievements</div>
+    <h2 class="section-title">Numbers that mattered</h2>
+    <p class="section-sub" style="margin-bottom:48px;">Outcomes across six years of engineering and analytics work.</p>
+
+    <div class="achievements-grid stagger">
+      <div class="achievement-card">
+        <div class="achievement-icon">📈</div>
+        <div class="achievement-num">20%</div>
+        <div class="achievement-label">Reporting efficiency improvement at Gerry's Logistics</div>
+      </div>
+      <div class="achievement-card">
+        <div class="achievement-icon">📦</div>
+        <div class="achievement-num">30%</div>
+        <div class="achievement-label">WIP reduction at IFFCO through supply chain visibility</div>
+      </div>
+      <div class="achievement-card">
+        <div class="achievement-icon">⏱️</div>
+        <div class="achievement-num">15%</div>
+        <div class="achievement-label">Project lead time reduction via scheduling data analysis</div>
+      </div>
+      <div class="achievement-card">
+        <div class="achievement-icon">🔄</div>
+        <div class="achievement-num">2 Days</div>
+        <div class="achievement-label">Manual reporting cycle eliminated through automation</div>
+      </div>
+      <div class="achievement-card">
+        <div class="achievement-icon">✅</div>
+        <div class="achievement-num">10+</div>
+        <div class="achievement-label">Data pipelines and BI platforms built end-to-end</div>
+      </div>
+      <div class="achievement-card">
+        <div class="achievement-icon">🤖</div>
+        <div class="achievement-num">AI</div>
+        <div class="achievement-label">Improved data readiness for LLM and agentic AI deployment</div>
+      </div>
+      <div class="achievement-card">
+        <div class="achievement-icon">🏭</div>
+        <div class="achievement-num">5</div>
+        <div class="achievement-label">Industries: Pharma, Logistics, FMCG, Telecom AI, Engineering</div>
+      </div>
+      <div class="achievement-card">
+        <div class="achievement-icon">🎓</div>
+        <div class="achievement-num">MS</div>
+        <div class="achievement-label">Data Science from NED University, with focus on time series &amp; ML</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- CERTIFICATIONS -->
+<!-- ══════════════════════════════════════════ -->
+<section id="certifications" class="section-pad">
+  <div class="container">
+    <div class="section-label">Certifications</div>
+    <h2 class="section-title">Continuous learning</h2>
+    <p class="section-sub" style="margin-bottom:48px;">Certifications that reflect what I was actually trying to get better at.</p>
+    <div class="cert-grid stagger">
+      <div class="cert-card">
+        <div class="cert-icon">🏅</div>
+        <div><div class="cert-name">Google Data Analytics Professional Certificate</div><div class="cert-issuer">Google · Coursera</div></div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🗄️</div>
+        <div><div class="cert-name">SQL for Data Science</div><div class="cert-issuer">UC Davis · Coursera</div></div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🐍</div>
+        <div><div class="cert-name">Python for Data Science</div><div class="cert-issuer">IBM · Coursera</div></div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">📊</div>
+        <div><div class="cert-name">Data Analytics &amp; Business Intelligence</div><div class="cert-issuer">Professional Development</div></div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🐧</div>
+        <div><div class="cert-name">Linux Administration &amp; Shell Scripting</div><div class="cert-issuer">Professional Development</div></div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🎌</div>
+        <div><div class="cert-name">Japanese 5S Methodology</div><div class="cert-issuer">Workplace Organization</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- TECH STACK -->
+<!-- ══════════════════════════════════════════ -->
+<section id="techstack" class="section-pad">
+  <div class="container">
+    <div class="section-label">Tech Ecosystem</div>
+    <h2 class="section-title">The full picture</h2>
+    <p class="section-sub" style="margin-bottom:48px;">How my tools fit together across the data lifecycle.</p>
+    <div class="tech-categories">
+      <div class="tech-cat">
+        <div class="tech-cat-label">Programming</div>
+        <div class="tech-pills">
+          <span class="tech-pill">Python</span>
+          <span class="tech-pill">SQL</span>
+          <span class="tech-pill">Bash</span>
+          <span class="tech-pill">DAX</span>
+        </div>
+      </div>
+      <div class="tech-cat">
+        <div class="tech-cat-label">Databases</div>
+        <div class="tech-pills">
+          <span class="tech-pill">PostgreSQL</span>
+          <span class="tech-pill">MySQL</span>
+          <span class="tech-pill">SQL Server</span>
+        </div>
+      </div>
+      <div class="tech-cat">
+        <div class="tech-cat-label">Orchestration</div>
+        <div class="tech-pills">
+          <span class="tech-pill">Apache Airflow</span>
+          <span class="tech-pill">Docker</span>
+          <span class="tech-pill">Cron / Linux</span>
+          <span class="tech-pill">Git</span>
+        </div>
+      </div>
+      <div class="tech-cat">
+        <div class="tech-cat-label">Visualization</div>
+        <div class="tech-pills">
+          <span class="tech-pill">Power BI</span>
+          <span class="tech-pill">Tableau</span>
+          <span class="tech-pill">SAP Analytics Cloud</span>
+          <span class="tech-pill">Matplotlib</span>
+        </div>
+      </div>
+      <div class="tech-cat">
+        <div class="tech-cat-label">AI &amp; ML</div>
+        <div class="tech-pills">
+          <span class="tech-pill">SARIMA / ARIMA</span>
+          <span class="tech-pill">Agentic AI</span>
+          <span class="tech-pill">Scikit-learn</span>
+          <span class="tech-pill">Pandas / NumPy</span>
+        </div>
+      </div>
+      <div class="tech-cat">
+        <div class="tech-cat-label">Cloud Readiness</div>
+        <div class="tech-pills">
+          <span class="tech-pill">Docker Compose</span>
+          <span class="tech-pill">REST APIs</span>
+          <span class="tech-pill">Linux Admin</span>
+          <span class="tech-pill">Data Warehouse Design</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- TESTIMONIALS -->
+<!-- ══════════════════════════════════════════ -->
+<section id="testimonials" class="section-pad">
+  <div class="container">
+    <div class="section-label">Recommendations</div>
+    <h2 class="section-title">What people say</h2>
+    <p class="section-sub" style="margin-bottom:48px;">Placeholder recommendations — real ones available on LinkedIn.</p>
+    <div class="testimonials-grid stagger">
+      <div class="testimonial-card">
+        <p class="testimonial-text">Samreena has a rare combination of technical depth and business awareness. She doesn't just build pipelines — she asks why the pipeline needs to exist, and that changes the quality of everything she delivers. The reporting automation she built cut our cycle time in half. I'd hire her again without hesitation.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">AM</div>
+          <div>
+            <div class="author-name">Analytics Manager</div>
+            <div class="author-role">Logistics Industry · LinkedIn Recommendation</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">As a business stakeholder, I've worked with many analysts who give me numbers but not answers. Samreena gives you answers. She took the time to understand what we actually needed from the supply chain dashboard before writing a single query. The result was something our operations team used every single day.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">SK</div>
+          <div>
+            <div class="author-name">Operations Director</div>
+            <div class="author-role">FMCG Industry · Business Stakeholder</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">Working alongside Samreena on data validation and pipeline quality work, I was consistently impressed by her attention to edge cases. She thinks about the data production system as a whole — not just whether the code runs, but whether the output can be trusted. That mindset is hard to teach.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">HR</div>
+          <div>
+            <div class="author-name">Senior Data Engineer</div>
+            <div class="author-role">Technology Industry · Technical Peer</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- CONTACT -->
+<!-- ══════════════════════════════════════════ -->
+<section id="contact" class="section-pad">
+  <div class="container">
+    <div class="contact-inner fade-up">
+      <div class="section-label">Contact</div>
+      <h2 class="section-title">Let's build something reliable.</h2>
+      <p>If you're looking for a Data or Analytics Engineer who's comfortable in the pipeline as much as the dashboard — and who cares about whether the data is actually right — I'd love to talk. Open to remote-first and international opportunities.</p>
+      <div class="contact-links">
+        <a href="mailto:engr.sam789@gmail.com" class="contact-link">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+          engr.sam789@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/samreena-jamshed-582745136/" target="_blank" class="contact-link">
+          <svg fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn Profile
+        </a>
+        <a href="#" class="contact-link">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Karachi, Pakistan
+        </a>
+      </div>
+      <a href="mailto:engr.sam789@gmail.com" class="btn-primary" style="margin:0 auto;">
+        Start a Conversation →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p>Designed &amp; built for <span>Samreena Jamshed</span> · Data Engineer · Karachi, Pakistan</p>
+    <p style="margin-top:6px;">Open to remote &amp; international roles · <a href="mailto:engr.sam789@gmail.com" style="color:var(--accent);text-decoration:none;">engr.sam789@gmail.com</a></p>
+  </div>
+</footer>
+
+<script>
+// ─── MERMAID INIT ───
+mermaid.initialize({
+  startOnLoad: true,
+  theme: 'dark',
+  themeVariables: {
+    primaryColor: '#1a1a24',
+    primaryTextColor: '#e8e8f0',
+    primaryBorderColor: '#c8a96e',
+    lineColor: '#5a5a72',
+    secondaryColor: '#16161f',
+    tertiaryColor: '#111118'
+  }
+});
+
+// ─── THEME TOGGLE ───
+const themeToggle = document.getElementById('themeToggle');
+const html = document.documentElement;
+themeToggle.addEventListener('click', () => {
+  const current = html.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  themeToggle.textContent = next === 'dark' ? '☀ Light' : '🌙 Dark';
+});
+
+// ─── HAMBURGER ───
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('navLinks').classList.toggle('open');
+});
+
+// ─── SCROLL ANIMATIONS ───
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(el => {
+    if (el.isIntersecting) {
+      el.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-up, .stagger').forEach(el => observer.observe(el));
+
+// ─── SKILL BARS ANIMATION ───
+const skillObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.skill-fill').forEach(bar => {
+        const w = bar.style.width;
+        bar.style.width = '0%';
+        setTimeout(() => bar.style.width = w, 100);
+      });
+    }
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('.skill-cat').forEach(el => skillObserver.observe(el));
+
+// ─── ARCH TABS ───
+function showArch(id, btn) {
+  document.querySelectorAll('.arch-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.arch-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('arch-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ─── ACTIVE NAV LINK ───
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 100) current = s.id;
+  });
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : '';
+  });
+});
+</script>
+</body>
+</html>
