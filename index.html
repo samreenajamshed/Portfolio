@@ -875,9 +875,14 @@ footer {
   .projects-grid { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: 1fr; }
   .problems-grid { grid-template-columns: 1fr; }
-  .tl-item { grid-template-columns: 0 40px 1fr; }
+  .tl-item {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
   .tl-meta { display: none; }
-  .tl-content { padding: 1rem 0 1rem 1.25rem; }
+  .tl-mid { flex-shrink: 0; width: 36px; }
+  .tl-content { flex: 1; min-width: 0; padding: 0 0 2rem 1.25rem; overflow-wrap: break-word; word-break: normal; }
   .consulting-inner { padding: 2rem 1.5rem; }
   .form-row { grid-template-columns: 1fr; }
   .hero-float-card { display: none; }
