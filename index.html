@@ -869,8 +869,8 @@ footer {
   .section { padding: 4rem 0; }
   .nav-links { display: none; }
   .hamburger { display: flex; }
-  h1 { font-size: clamp(2rem, 8vw, 2.8rem); }
-  h2 { font-size: clamp(1.6rem, 5vw, 2rem); }
+  h1 { font-size: clamp(1.9rem, 7vw, 2.6rem); line-height: 1.2; overflow-wrap: break-word; word-break: normal; }
+  h2 { font-size: clamp(1.5rem, 5vw, 2rem); }
   .services-grid { grid-template-columns: 1fr; }
   .projects-grid { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: 1fr; }
@@ -1820,7 +1820,7 @@ footer {
       <div class="about-content reveal reveal-d2">
         <span class="label">About</span>
         <h2>Engineer First.<br>Analyst by Experience.</h2>
-        <p>I'm a Lead Data &amp; AI Engineer with a background in Engineering (BE, NED University) and a Master's in Data Science — bringing 7+ years of hands-on experience building data platforms, BI systems, and AI solutions across FMCG, logistics, pharmaceuticals, and global behavioral AI.</p>
+        <p>I'm a Lead Data &amp; AI Engineer with a background in Electrical Engineering (BE, NED University) and a Master's in Data Science — bringing 7+ years of hands-on experience building data platforms, BI systems, and AI solutions across FMCG, logistics, pharmaceuticals, and global behavioral AI.</p>
         <p>What makes me different: I understand the business reason behind every system I build. Whether it's a Fabric Lakehouse for logistics, a RAG framework for AI agents, or a supply chain KPI system — I start with the outcome and work backwards to the architecture.</p>
         <p>Currently open to remote roles, consulting projects, and international opportunities in data engineering, Microsoft Fabric, and applied AI.</p>
         <div class="about-stats">
@@ -1907,6 +1907,13 @@ footer {
             <div>
               <div class="contact-link-label">GitHub</div>
               <div class="contact-link-val">samreenajamshed</div>
+            </div>
+          </a>
+          <a href="https://wa.me/923343532813" target="_blank" rel="noopener" class="contact-link">
+            <span class="contact-link-icon">💬</span>
+            <div>
+              <div class="contact-link-label">WhatsApp</div>
+              <div class="contact-link-val">+92 334 353 2813</div>
             </div>
           </a>
         </div>
@@ -2066,15 +2073,37 @@ document.addEventListener('keydown', e => {
 // ── Contact form ──
 function handleSubmit(e) {
   e.preventDefault();
-  const name = document.getElementById('name').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const msg = document.getElementById('message').value.trim();
+  const name    = document.getElementById('name').value.trim();
+  const email   = document.getElementById('email').value.trim();
+  const need    = document.getElementById('need').value;
+  const msg     = document.getElementById('message').value.trim();
   if (!name || !email || !msg) return;
-  // In production: replace with fetch() to a form endpoint / Formspree / EmailJS
+
+  // 1) Open email client with pre-filled message
+  const subject = encodeURIComponent('Portfolio Inquiry' + (need ? ': ' + need : ''));
+  const body    = encodeURIComponent(
+    'Name: ' + name +
+    '\nEmail: ' + email +
+    '\nService: ' + (need || 'Not specified') +
+    '\n\nMessage:\n' + msg
+  );
+  window.location.href = 'mailto:engr.sam789@gmail.com?subject=' + subject + '&body=' + body;
+
+  // 2) Also open WhatsApp after a short delay so mailto fires first
+  setTimeout(() => {
+    const waText = encodeURIComponent(
+      'Hi Samreena! I just sent you an enquiry from your portfolio. My name is ' + name + '. Looking forward to connecting!'
+    );
+    window.open('https://wa.me/923343532813?text=' + waText, '_blank');
+  }, 600);
+
+  // 3) Show success state
   const msgEl = document.getElementById('form-msg');
+  msgEl.textContent = '✓ Opening your email client & WhatsApp — message on its way!';
   msgEl.style.display = 'block';
-  e.target.querySelector('[type=submit]').disabled = true;
-  e.target.querySelector('[type=submit]').textContent = 'Message Sent ✓';
+  const btn = e.target.querySelector('[type=submit]');
+  btn.disabled = true;
+  btn.textContent = 'Message Sent ✓';
 }
 
 // ── Lazy image loading fallback ──
